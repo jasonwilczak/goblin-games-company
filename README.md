@@ -6,8 +6,7 @@ The studio site and a page for each game. Astro, deployed to GitHub Pages.
 - **`CLAUDE.md`:** the decisions, the look and the content rules.
 - **Deploy:** push to `main`; GitHub Actions builds and publishes. Pages > Source: GitHub Actions.
 - **Still to fill in** (`content/studio/studio.json`, `content/games/the-last-god/game.json`):
-  - the domain;
-  - the contact email and social links;
+  - the social links;
   - the Steam app ID (game and demo);
   - the trailer's YouTube id.
 
@@ -15,7 +14,7 @@ The studio site and a page for each game. Astro, deployed to GitHub Pages.
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/goblin-games-company/
+npm run dev      # http://localhost:4321/
 npm run build    # static site in dist/
 ```
 
