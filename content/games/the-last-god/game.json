@@ -1,0 +1,330 @@
+{
+  "slug": "the-last-god",
+  "title": "The Last God",
+  "tagline": "Curse the gods. Kill them all. Something is listening.",
+  "status": "Coming to Steam (Early Access). Free demo.",
+  "steam": {
+    "appId": null,
+    "demoAppId": null,
+    "url": null,
+    "note": "Fill in when the Steam page exists; until then the Wishlist button shows 'Coming soon to Steam'."
+  },
+  "trailer": {
+    "youtubeId": null,
+    "note": "Upload Builds/Marketing/179/trailer-roughcut.mp4 to YouTube and put the id here."
+  },
+  "short_description": "The gods took someone from you. Nothing that has stopped dying remembers what a life is worth. You cursed them all, and something answered with an offer: your vengeance, for your life. A dark roguelike auto-shooter. Make every pantheon answer.",
+  "about": [
+    "**Something was listening.**",
+    "You had a home. You had someone in it. Then the gods took them, the way they take whoever they like: nothing that has stopped dying remembers what a life is worth.",
+    "So you cursed them. Not one god, not one pantheon: all of them, everywhere. Something far older than any god heard that curse and made you an offer: the justice you want, if you give up your life for it. You took it. It has guided you ever since, throne to throne. Everything it tells you is true. It just never tells you all of it.",
+    "**THE LAST GOD** is a dark-fantasy roguelike auto-shooter. You move; your attacks are your own. Survive the swarm, break the demigods, and bring down the god of every realm you enter."
+  ],
+  "features": [
+    {
+      "title": "Every realm is a climb",
+      "text": "Three levels on Normal, then the same three on Hard, then on Nightmare, carrying one build all the way up. Each class makes its own climb, and a fall sends you back to the start of the tier, not the start of the realm. Stuck on a tier with a build that let you down? Spend essence to rebuild your start from scratch."
+    },
+    {
+      "title": "Four classes, eight evolutions",
+      "text": "Fighter, Cleric, Mage and Thief. Each grows through three ranks as it climbs and, at its peak, chooses one of two evolutions that change how it fights for the rest of that climb. At level 10 each picks a second skill of its own from three: Charge, Frost Nova, Smite, Blink and eight more.",
+      "animations": [
+        "evolution"
+      ]
+    },
+    {
+      "title": "Runes that build on themselves",
+      "text": "Open rune chests, spin the wheel, and slot what you find. Matching runes merge into rarer ones. No two builds solve the swarm the same way."
+    },
+    {
+      "title": "Take the gods' power",
+      "text": "Bring a god down on Hard or Nightmare and its skill is yours for good: Thor's Mjolnir, Odin's Gungnir, Ra's Solar Sweep. Each answers in its own realm, for every class; spend the gods' blood to make it answer everywhere. Carry two at a time.",
+      "animations": [
+        "god-kill",
+        "god-skill"
+      ]
+    },
+    {
+      "title": "Five pantheons, and the thrones beyond them",
+      "text": "Pagan, Norse, Greek, Egyptian and Japanese realms, each with its own monsters, demigods and gods, its own weather, a world beyond the walls that never quite holds still, and its own reason your curse found its way there. Some realms are not on any map."
+    },
+    {
+      "title": "Gods that fight back",
+      "text": "Every god fights in phases, with telegraphed attacks to read and dodge, and gets harder as it bleeds.",
+      "animations": [
+        "god-phase"
+      ]
+    },
+    {
+      "title": "Progress that outlives the run",
+      "text": "The Reliquary opens up as you clear realms, turning what you bank into stat seeds, artifact slots, class mastery and starting bonuses. Artifacts drop from the gods themselves, each god its own, and you can refine the ones you keep.",
+      "animations": [
+        "reliquary"
+      ]
+    },
+    {
+      "title": "Nightmare, for those who keep going",
+      "text": "The hardest tier has its own currency, the gods' Ichor, and its own rewards: keepsakes, the relics mortals used against their gods, and vows that raise the stakes for a greater share.",
+      "animations": [
+        "nightmare"
+      ]
+    },
+    {
+      "title": "A story told in fragments",
+      "text": "A narrator who knows more than it says, shrines that remember their gods, and a Chronicle of everything you've uncovered. Each difficulty shows you more of how it ends."
+    }
+  ],
+  "closing_line": "Full keyboard and mouse, gamepad and touch support, with every action rebindable.",
+  "demo": {
+    "short_description": "Play the first two pantheons of The Last God: the Pagan and Norse realms, six gods to bring down, two classes to master, and Nightmare for those who survive it.",
+    "includes": [
+      "Two realms, six gods: the Pagan realm (Cernunnos, the Morrígan, the Dagda) and the Norse realm (Thor, Freyja, Odin), with their demigods, shrines and weather.",
+      "Fighter and Cleric, each climbing both realms from Normal through Nightmare, evolutions and the level-10 skill included.",
+      "Runes, artifacts and god skills from those six gods.",
+      "The Reliquary and the whole climb, Nightmare included, with that realm pair's keepsakes and vows."
+    ],
+    "full_game_adds": "The full game adds the Greek, Egyptian and Japanese pantheons, the Mage and the Thief, eighteen more gods, and what waits past the fifth throne."
+  },
+  "facts": {
+    "developer": "Goblin Games (Jason Wilczak)",
+    "platforms": [
+      "Windows (Steam)"
+    ],
+    "planned_platforms": [
+      "Mobile",
+      "Nintendo Switch"
+    ],
+    "genre": "Dark-fantasy roguelike auto-shooter",
+    "price": "$6.99 Early Access, $9.99 at 1.0; the demo is free",
+    "languages": "English",
+    "controller": "Full controller support",
+    "size": "Full game 171 MB, demo 112 MB",
+    "tags": [
+      "Action Roguelike",
+      "Roguelike",
+      "Bullet Heaven",
+      "Pixel Graphics",
+      "Dark Fantasy",
+      "Mythology",
+      "Top-Down Shooter",
+      "Difficult",
+      "Replay Value",
+      "Singleplayer",
+      "Controller",
+      "2D",
+      "Atmospheric"
+    ]
+  },
+  "requirements": {
+    "minimum": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Dual core, 2.0 GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "DirectX 11, 1 GB VRAM (Intel UHD 620 class)",
+      "Storage": "300 MB available space"
+    },
+    "recommended": {
+      "OS": "Windows 10/11 64-bit",
+      "Processor": "Quad core, 3.0 GHz",
+      "Memory": "8 GB RAM",
+      "Graphics": "DirectX 12, 2 GB VRAM",
+      "Storage": "300 MB available space"
+    }
+  },
+  "ai_disclosure": "Pre-generated content. The game's visual art (characters, monsters, environments, icons, cutscene backgrounds and store art), its music and some of its sound effects were generated with AI image, music and audio models, then directed, curated, edited and fitted to the game's art style and tone by the developer at Goblin Games. The game's code and its writing were developed with an AI assistant (Claude, by Anthropic) under the developer's direction; the game's design, story and direction are the developer's own. The remaining sound effects come from Pixabay. No AI generates content while you play.",
+  "credits": [
+    {
+      "role": "Design, story, mechanics & direction",
+      "who": [
+        "Jason Wilczak"
+      ]
+    },
+    {
+      "role": "Art",
+      "who": [
+        "Made with FLUX (Black Forest Labs), via Replicate",
+        "Art direction by Jason Wilczak"
+      ]
+    },
+    {
+      "role": "Music",
+      "who": [
+        "Made with ElevenLabs Music, via Replicate"
+      ]
+    },
+    {
+      "role": "Sound",
+      "who": [
+        "Sound effects by Pixabay creators, among them Universfield",
+        "Additional sounds made with Stable Audio (Stability AI), via Replicate"
+      ]
+    },
+    {
+      "role": "Fonts",
+      "who": [
+        "Cinzel and Cinzel Decorative by Natanael Gama",
+        "Alegreya Sans by Huerta Tipográfica",
+        "MedievalSharp by wmk69",
+        "Under the SIL Open Font License 1.1"
+      ]
+    },
+    {
+      "role": "Made with",
+      "who": [
+        "Unity",
+        "Claude (Anthropic), for code and writing, via Claude Code"
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "01-swarm",
+      "full": "assets/screenshots/01-swarm.webp",
+      "thumb": "assets/screenshots/01-swarm-thumb.webp",
+      "alt": "The swarm, and the danger rings to dodge",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "02-demigod",
+      "full": "assets/screenshots/02-demigod.webp",
+      "thumb": "assets/screenshots/02-demigod-thumb.webp",
+      "alt": "A demigod in Sessrumnir",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "03-god",
+      "full": "assets/screenshots/03-god.webp",
+      "thumb": "assets/screenshots/03-god-thumb.webp",
+      "alt": "Odin, the All-Father",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "04-runes",
+      "full": "assets/screenshots/04-runes.webp",
+      "thumb": "assets/screenshots/04-runes-thumb.webp",
+      "alt": "A rune chest: mark two, spin the wheel",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "05-god-skill",
+      "full": "assets/screenshots/05-god-skill.webp",
+      "thumb": "assets/screenshots/05-god-skill-thumb.webp",
+      "alt": "A god's power, yours to carry",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "06-evolution",
+      "full": "assets/screenshots/06-evolution.webp",
+      "thumb": "assets/screenshots/06-evolution-thumb.webp",
+      "alt": "Evolution: Arbiter or Paladin",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "07-shrine",
+      "full": "assets/screenshots/07-shrine.webp",
+      "thumb": "assets/screenshots/07-shrine-thumb.webp",
+      "alt": "A shrine remembers its god",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "08-nightmare",
+      "full": "assets/screenshots/08-nightmare.webp",
+      "thumb": "assets/screenshots/08-nightmare-thumb.webp",
+      "alt": "Valhalla on Nightmare",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "09-reliquary",
+      "full": "assets/screenshots/09-reliquary.webp",
+      "thumb": "assets/screenshots/09-reliquary-thumb.webp",
+      "alt": "The Reliquary: keepsakes",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "10-map",
+      "full": "assets/screenshots/10-map.webp",
+      "thumb": "assets/screenshots/10-map-thumb.webp",
+      "alt": "The world map",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "11-japan",
+      "full": "assets/screenshots/11-japan.webp",
+      "thumb": "assets/screenshots/11-japan-thumb.webp",
+      "alt": "The Mage at the Palace of Amaterasu",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "12-egypt-god",
+      "full": "assets/screenshots/12-egypt-god.webp",
+      "thumb": "assets/screenshots/12-egypt-god-thumb.webp",
+      "alt": "Ra, at the Throne of Ra",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "animations": [
+    {
+      "id": "swarm",
+      "video": "assets/animations/swarm.mp4",
+      "poster": "assets/animations/swarm-poster.webp",
+      "alt": "The swarm"
+    },
+    {
+      "id": "evolution",
+      "video": "assets/animations/evolution.mp4",
+      "poster": "assets/animations/evolution-poster.webp",
+      "alt": "An evolution chosen"
+    },
+    {
+      "id": "god-kill",
+      "video": "assets/animations/god-kill.mp4",
+      "poster": "assets/animations/god-kill-poster.webp",
+      "alt": "Odin falls: Gungnir is yours"
+    },
+    {
+      "id": "god-skill",
+      "video": "assets/animations/god-skill.mp4",
+      "poster": "assets/animations/god-skill-poster.webp",
+      "alt": "A god skill in a fight"
+    },
+    {
+      "id": "god-phase",
+      "video": "assets/animations/god-phase.mp4",
+      "poster": "assets/animations/god-phase-poster.webp",
+      "alt": "Thor enrages"
+    },
+    {
+      "id": "reliquary",
+      "video": "assets/animations/reliquary.mp4",
+      "poster": "assets/animations/reliquary-poster.webp",
+      "alt": "The Reliquary, tab by tab"
+    },
+    {
+      "id": "nightmare",
+      "video": "assets/animations/nightmare.mp4",
+      "poster": "assets/animations/nightmare-poster.webp",
+      "alt": "Nightmare"
+    }
+  ],
+  "art": {
+    "hero": "assets/art/hero.webp",
+    "logo": "assets/art/logo.png",
+    "capsule": "assets/art/capsule.webp",
+    "header": "assets/art/header.webp",
+    "vertical": "assets/art/vertical.webp",
+    "background": "assets/art/page-background.webp"
+  },
+  "about_animation": "swarm"
+}

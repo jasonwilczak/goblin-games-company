@@ -1,0 +1,24 @@
+{
+  "name": "Goblin Games",
+  "legal_name": "Goblin Games Company",
+  "domain": null,
+  "tagline": null,
+  "about": "Goblin Games is a one-person studio: Jason Wilczak, making dark, handmade-feeling games. Its first game is The Last God, a dark-fantasy roguelike auto-shooter.",
+  "contact_email": null,
+  "links": {
+    "steam_developer": null,
+    "youtube": null,
+    "x": null,
+    "bluesky": null,
+    "instagram": null,
+    "discord": null
+  },
+  "logo": {
+    "image": "assets/goblin-logo-1024.png",
+    "credit": "The goblin by @ashley_storm360",
+    "credit_url": "https://www.instagram.com/ashley_storm360"
+  },
+  "games": [
+    "the-last-god"
+  ]
+}
