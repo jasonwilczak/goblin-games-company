@@ -1,12 +1,12 @@
 ---
-// The studio home: the goblin, a short about, a card per game, and contact (only what's set).
+// The studio home: the goblin (credited in the footer), a short about, a card per game, and contact (only what's set).
 import Base from '../layouts/Base.astro';
 import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib/content';
 ---
 
 <Base title={studio.name} description={studio.about}>
   <section class="intro wrap">
-    <figure class="goblin">
+    <div class="goblin">
       <img
         src={studioAsset('assets/goblin-logo-512.png')}
         srcset={`${studioAsset('assets/goblin-logo-512.png')} 512w, ${studioAsset(studio.logo.image)} 1024w`}
@@ -16,10 +16,7 @@ import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib
         height="512"
         fetchpriority="high"
       />
-      <figcaption>
-        {studio.logo.credit_url ? <a href={studio.logo.credit_url} rel="noopener">{studio.logo.credit}</a> : studio.logo.credit}
-      </figcaption>
-    </figure>
+    </div>
     <div class="intro-text">
       <h1 class="studio-name">{studio.name}</h1>
       {studio.tagline && <p class="tagline">{studio.tagline}</p>}
@@ -70,9 +67,6 @@ import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib
   .goblin { margin: 0; display: grid; justify-items: center; }
   .goblin img { width: 240px; filter: drop-shadow(0 10px 40px rgba(212, 175, 90, 0.12)); }
   @media (min-width: 720px) { .goblin img { width: 320px; } }
-  .goblin figcaption { font-size: 0.9rem; }
-  .goblin figcaption a { color: var(--soft); }
-  .goblin figcaption a:hover { color: var(--gold-hover); }
 
   .studio-name {
     font-family: var(--font-studio);
