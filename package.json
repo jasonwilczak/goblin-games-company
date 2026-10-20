@@ -1,0 +1,25 @@
+{
+  "name": "goblin-games-site",
+  "description": "The studio site and a page for each game. Astro, deployed to GitHub Pages.",
+  "scripts": {
+    "fonts": "node scripts/fonts.mjs",
+    "dev": "npm run fonts && astro dev",
+    "build": "npm run fonts && astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonwilczak/goblin-games-company.git"
+  },
+  "dependencies": {
+    "astro": "^7.4.1"
+  },
+  "devDependencies": {
+    "wawoff2": "^2.0.1"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}

@@ -1,0 +1,45 @@
+---
+// The game's fact sheet, in the order game.json gives it. Tags show as chips.
+import type { Game } from '../lib/content';
+
+interface Props { game: Game; extra?: { label: string; value: string; url?: string }[] }
+const { game, extra = [] } = Astro.props;
+
+const labels: Record<string, string> = {
+  developer: 'Developer',
+  platforms: 'Platforms',
+  planned_platforms: 'Planned platforms',
+  genre: 'Genre',
+  price: 'Price',
+  languages: 'Languages',
+  controller: 'Controller',
+  size: 'Download size',
+  tags: 'Tags',
+};
+const label = (key: string) => labels[key] ?? key.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
+const rows = Object.entries(game.facts).filter(([key, value]) => key !== 'tags' && value && value.length);
+const tags = Array.isArray(game.facts.tags) ? game.facts.tags : [];
+---
+
+<dl class="facts">
+  {extra.map((row) => (
+    <div>
+      <dt>{row.label}</dt>
+      <dd>{row.url ? <a href={row.url}>{row.value}</a> : row.value}</dd>
+    </div>
+  ))}
+  {rows.map(([key, value]) => (
+    <div>
+      <dt>{label(key)}</dt>
+      <dd>{Array.isArray(value) ? value.join(', ') : value}</dd>
+    </div>
+  ))}
+  {tags.length > 0 && (
+    <div>
+      <dt>Tags</dt>
+      <dd>
+        <ul class="tags">{tags.map((tag) => <li>{tag}</li>)}</ul>
+      </dd>
+    </div>
+  )}
+</dl>

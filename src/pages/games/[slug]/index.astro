@@ -1,0 +1,195 @@
+---
+// A game's page, laid out like its Steam page. One per folder in content/games/.
+import Base from '../../../layouts/Base.astro';
+import Animation from '../../../components/Animation.astro';
+import Gallery from '../../../components/Gallery.astro';
+import SteamButton from '../../../components/SteamButton.astro';
+import Trailer from '../../../components/Trailer.astro';
+import Facts from '../../../components/Facts.astro';
+import Requirements from '../../../components/Requirements.astro';
+import Credits from '../../../components/Credits.astro';
+import { games, gameAsset, href, inline, socialImage, studio, type Game } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return games.map((game) => ({ params: { slug: game.slug }, props: { game } }));
+}
+
+const { game } = Astro.props as { game: Game };
+const art = (key: string) => (game.art[key] ? gameAsset(game, game.art[key]) : undefined);
+const demoUrl = game.steam.demoAppId ? `https://store.steampowered.com/app/${game.steam.demoAppId}/` : null;
+---
+
+<Base
+  title={`${game.title} | ${studio.name}`}
+  description={game.short_description}
+  image={await socialImage(game)}
+  imageAlt={game.title}
+  background={art('background')}
+>
+  <a slot="nav" class="nav-link" href={href(`games/${game.slug}/press`)}>Press kit</a>
+
+  <section class="hero">
+    <div class="hero-art">
+      <img src={art('hero')} alt="" width="2400" height="775" fetchpriority="high" />
+    </div>
+    <div class="hero-content wrap">
+      <h1>
+        {art('logo') ? <img class="logo" src={art('logo')} alt={game.title} width="1280" height="224" /> : game.title}
+      </h1>
+      <p class="tagline">{game.tagline}</p>
+      <SteamButton game={game} class="hero-button" />
+      <p class="status small">{game.status}</p>
+    </div>
+  </section>
+
+  {/* Until there's a trailer, the hero art above stands in for it. */}
+  <section class:list={['section summary', game.trailer.youtubeId ? 'wrap with-trailer' : 'narrow']}>
+    {game.trailer.youtubeId && <Trailer youtubeId={game.trailer.youtubeId} still={art('header') ?? art('hero')!} title={game.title} />}
+    <p class="lead">{game.short_description}</p>
+  </section>
+
+  <section class="section narrow about" aria-labelledby="about-title">
+    <h2 id="about-title" class="eyebrow">About this game</h2>
+    {game.about.map((paragraph) => <p set:html={inline(paragraph)} />)}
+  </section>
+  {game.about_animation && (
+    <div class="narrow about-animation">
+      <Animation game={game} id={game.about_animation} />
+    </div>
+  )}
+
+  <section class="section narrow" aria-labelledby="features-title">
+    <h2 id="features-title" class="eyebrow">Features</h2>
+    <ol class="features">
+      {game.features.map((feature) => (
+        <li>
+          <h3>{feature.title}</h3>
+          <p set:html={inline(feature.text)} />
+          {feature.animations?.length ? (
+            <div class:list={['feature-media', { pair: feature.animations.length > 1 }]}>
+              {feature.animations.map((id) => <Animation game={game} id={id} />)}
+            </div>
+          ) : null}
+        </li>
+      ))}
+    </ol>
+    {game.closing_line && <p class="closing" set:html={inline(game.closing_line)} />}
+  </section>
+
+  <section class="section wrap" aria-labelledby="shots-title">
+    <h2 id="shots-title" class="eyebrow">Screenshots</h2>
+    <Gallery game={game} />
+  </section>
+
+  {game.demo && (
+    <section class="section wrap" aria-labelledby="demo-title">
+      <div class="demo panel">
+        <h2 id="demo-title">Free demo</h2>
+        <p class="lead" set:html={inline(game.demo.short_description)} />
+        <ul class="includes">
+          {game.demo.includes.map((item) => <li set:html={inline(item)} />)}
+        </ul>
+        {game.demo.full_game_adds && <p class="muted" set:html={inline(game.demo.full_game_adds)} />}
+        {demoUrl && <a class="button ghost" href={demoUrl} rel="noopener">Get the demo on Steam</a>}
+      </div>
+    </section>
+  )}
+
+  <section class="section wrap" aria-labelledby="facts-title">
+    <h2 id="facts-title" class="eyebrow">Details</h2>
+    <Facts game={game} />
+  </section>
+
+  <section class="section wrap" aria-labelledby="req-title">
+    <h2 id="req-title" class="eyebrow">System requirements</h2>
+    <Requirements game={game} />
+  </section>
+
+  <div class="section wrap">
+    <Credits game={game} />
+  </div>
+
+  <section class="section wrap cta">
+    <SteamButton game={game} />
+    <a class="button ghost" href={href(`games/${game.slug}/press`)}>Press kit</a>
+  </section>
+</Base>
+
+<style>
+  .nav-link {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* Hero: the art across the top, the logo, tagline and button over its lower edge. */
+  .hero { position: relative; }
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1;
+    max-height: 70svh;
+    width: 100%;
+    overflow: hidden;
+  }
+  @media (min-width: 720px) {
+    .hero-art { aspect-ratio: auto; height: clamp(420px, 40vw, 620px); }
+  }
+  .hero-art img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .hero-art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(14, 12, 13, 0.35), transparent 22%),
+      linear-gradient(to top, var(--bg) 2%, rgba(14, 12, 13, 0.6) 30%, transparent 60%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: clamp(-180px, -12vw, -48px);
+  }
+  .hero h1 { margin: 0 auto 12px; max-width: 720px; }
+  .logo { width: 100%; height: auto; filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.85)); }
+  .tagline {
+    font-family: var(--font-head);
+    font-size: clamp(1.05rem, 3.2vw, 1.4rem);
+    letter-spacing: 0.04em;
+    margin: 0 auto 28px;
+    max-width: 36ch;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  }
+  .hero :global(.hero-button) { min-width: min(100%, 320px); min-height: 58px; font-size: 1.05rem; }
+  .status { margin: 14px 0 0; color: var(--soft); }
+
+  .summary { padding-top: clamp(48px, 8vw, 88px); }
+  .summary.with-trailer { display: grid; gap: 28px; }
+  @media (min-width: 900px) {
+    .summary.with-trailer { grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+  }
+  .lead { font-size: 1.25rem; line-height: 1.55; margin: 0; }
+  .summary.narrow .lead { font-size: clamp(1.25rem, 3vw, 1.45rem); text-align: center; }
+
+  .about p:first-of-type { font-family: var(--font-head); font-size: 1.3rem; }
+  .about-animation { margin-top: 32px; }
+
+  .features { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(48px, 7vw, 72px); }
+  .features h3 { font-size: clamp(1.25rem, 3vw, 1.55rem); }
+  .features p { margin: 0; }
+  .feature-media { display: grid; gap: 20px; margin-top: 24px; }
+  @media (min-width: 720px) {
+    .feature-media.pair { grid-template-columns: 1fr 1fr; }
+  }
+  .closing { margin: clamp(48px, 7vw, 72px) 0 0; text-align: center; color: var(--soft); font-style: italic; }
+
+  .demo { padding: clamp(24px, 5vw, 48px); border-color: var(--line); }
+  .demo h2 { color: var(--gold); }
+  .demo .lead { margin-bottom: 1em; }
+  .includes { padding-left: 1.2em; margin: 0 0 1.2em; }
+  .includes li { margin-bottom: 0.6em; }
+  .includes li::marker { color: var(--gold); }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+</style>

@@ -1,0 +1,154 @@
+---
+// A game's press kit: fact sheet, descriptions, art to download, credits and contact.
+import Base from '../../../layouts/Base.astro';
+import Facts from '../../../components/Facts.astro';
+import Credits from '../../../components/Credits.astro';
+import { games, gameAsset, studioAsset, href, inline, fileName, socialImage, studio, studioLinks, type Game } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return games.map((game) => ({ params: { slug: game.slug }, props: { game } }));
+}
+
+const { game } = Astro.props as { game: Game };
+const pageUrl = new URL(href(`games/${game.slug}`), Astro.site).href;
+const steamUrl = game.steam.url ?? (game.steam.appId ? `https://store.steampowered.com/app/${game.steam.appId}/` : null);
+
+const artNames: Record<string, string> = {
+  logo: 'Logo (transparent PNG)',
+  capsule: 'Main capsule',
+  header: 'Header capsule',
+  vertical: 'Vertical capsule',
+  hero: 'Hero art',
+  background: 'Page background',
+};
+const download = (name: string) => `${game.slug}-${name}`;
+const artFiles = Object.entries(game.art).map(([key, path]) => ({
+  label: artNames[key] ?? key,
+  url: gameAsset(game, path),
+  file: download(fileName(path)),
+  logo: key === 'logo',
+}));
+
+const extra = [
+  { label: 'Status', value: game.status },
+  { label: 'Website', value: pageUrl.replace(/^https?:\/\//, ''), url: pageUrl },
+  ...(steamUrl ? [{ label: 'Steam', value: steamUrl.replace(/^https?:\/\//, ''), url: steamUrl }] : []),
+];
+---
+
+<Base
+  title={`${game.title} press kit | ${studio.name}`}
+  description={`Fact sheet, descriptions, screenshots and logos for ${game.title}.`}
+  image={await socialImage(game)}
+  imageAlt={game.title}
+>
+  <a slot="nav" class="nav-link" href={href(`games/${game.slug}`)}>{game.title}</a>
+
+  <div class="wrap top">
+    <p class="eyebrow">Press kit</p>
+    <h1 class="title">{game.title}</h1>
+    <p class="lead">{game.tagline}</p>
+  </div>
+
+  <section class="section wrap" aria-labelledby="sheet-title">
+    <h2 id="sheet-title" class="eyebrow">Fact sheet</h2>
+    <Facts game={game} extra={extra} />
+  </section>
+
+  <section class="section narrow" aria-labelledby="short-title">
+    <h2 id="short-title" class="eyebrow">Short description</h2>
+    <p>{game.short_description}</p>
+  </section>
+
+  <section class="section narrow" aria-labelledby="long-title">
+    <h2 id="long-title" class="eyebrow">Long description</h2>
+    {game.about.map((paragraph) => <p set:html={inline(paragraph)} />)}
+    {game.features.map((feature) => (
+      <>
+        <h3>{feature.title}</h3>
+        <p set:html={inline(feature.text)} />
+      </>
+    ))}
+    {game.closing_line && <p set:html={inline(game.closing_line)} />}
+  </section>
+
+  <section class="section wrap" aria-labelledby="dl-shots-title">
+    <h2 id="dl-shots-title" class="eyebrow">Screenshots</h2>
+    <p class="muted small">Full size, {game.screenshots[0]?.width}×{game.screenshots[0]?.height}, WebP. Tap one to download it.</p>
+    <ul class="downloads shots">
+      {game.screenshots.map((shot) => (
+        <li>
+          <a href={gameAsset(game, shot.full)} download={download(fileName(shot.full))}>
+            <img src={gameAsset(game, shot.thumb)} alt={shot.alt} width="640" height="360" loading="lazy" decoding="async" />
+            <span>{shot.alt}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section wrap" aria-labelledby="dl-art-title">
+    <h2 id="dl-art-title" class="eyebrow">Logos and art</h2>
+    <ul class="downloads art">
+      {artFiles.map((file) => (
+        <li>
+          <a href={file.url} download={file.file}>
+            <span class:list={['thumb', { logo: file.logo }]}><img src={file.url} alt="" loading="lazy" decoding="async" /></span>
+            <span>{file.label}</span>
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href={studioAsset(studio.logo.image)} download={`goblin-games-${fileName(studio.logo.image)}`}>
+          <span class="thumb logo"><img src={studioAsset(studio.logo.image)} alt="" loading="lazy" decoding="async" /></span>
+          <span>{studio.name} logo</span>
+        </a>
+        <span class="credit small">{studio.logo.credit_url ? <a href={studio.logo.credit_url} rel="noopener">{studio.logo.credit}</a> : studio.logo.credit}</span>
+      </li>
+    </ul>
+  </section>
+
+  <div class="section wrap">
+    <Credits game={game} />
+  </div>
+
+  {(studio.contact_email || studioLinks.length > 0) && (
+    <section class="section wrap" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="eyebrow">Contact</h2>
+      {studio.contact_email && <p><a href={`mailto:${studio.contact_email}`}>{studio.contact_email}</a></p>}
+      {studioLinks.length > 0 && (
+        <ul class="links">{studioLinks.map((link) => <li><a href={link.url} rel="noopener">{link.label}</a></li>)}</ul>
+      )}
+    </section>
+  )}
+</Base>
+
+<style>
+  .nav-link {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .top { padding-top: 120px; }
+  .title { font-family: var(--font-title); font-weight: 700; font-size: clamp(2.2rem, 9vw, 4.2rem); margin-bottom: 0.2em; }
+  .lead { font-family: var(--font-head); font-size: clamp(1.05rem, 3vw, 1.3rem); color: var(--soft); }
+  h3 { margin-top: 1.6em; }
+
+  .downloads { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 720px) {
+    .downloads { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  }
+  .downloads a { display: grid; gap: 8px; text-decoration: none; color: var(--text); font-size: 0.95rem; line-height: 1.35; }
+  .downloads a:hover { color: var(--gold-hover); }
+  .downloads img { width: 100%; border-radius: 2px; background: var(--panel); }
+  .shots img { aspect-ratio: 16 / 9; object-fit: cover; }
+  .thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--panel); border-radius: 2px; overflow: hidden; }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: transparent; }
+  .thumb.logo img { padding: 12px; }
+  .credit { display: block; margin-top: 4px; }
+  .credit a { color: var(--soft); }
+
+  .links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; }
+</style>

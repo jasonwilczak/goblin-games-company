@@ -1,0 +1,44 @@
+---
+// Credits and the AI disclosure, whole and worded exactly as game.json has them (it matches Steam).
+import type { Game } from '../lib/content';
+
+interface Props { game: Game }
+const { game } = Astro.props;
+---
+
+<div class="credits">
+  <section aria-labelledby="credits-title">
+    <h2 id="credits-title" class="eyebrow">Credits</h2>
+    <dl>
+      {game.credits.map((credit) => (
+        <div>
+          <dt>{credit.role}</dt>
+          {credit.who.map((who) => <dd>{who}</dd>)}
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section aria-labelledby="ai-title">
+    <h2 id="ai-title" class="eyebrow">AI disclosure</h2>
+    <p class="disclosure">{game.ai_disclosure}</p>
+  </section>
+</div>
+
+<style>
+  .credits { display: grid; gap: var(--space); }
+  dl { margin: 0; display: grid; gap: 22px; }
+  @media (min-width: 720px) {
+    dl { grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+  }
+  dt {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  dd { margin: 0; color: var(--soft); }
+  .disclosure { color: var(--soft); max-width: var(--narrow); }
+</style>

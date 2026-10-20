@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+import bodyFont from '../fonts/AlegreyaSans-Regular.woff2?url';
+import headFont from '../fonts/Cinzel-Variable.woff2?url';
+import { studio, studioAsset, href } from '../lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Built URL of the social preview image. */
+  image?: string;
+  imageAlt?: string;
+  /** Built URL of a full-page background (a game's page art). */
+  background?: string;
+}
+
+const { title, description, image = studioAsset('assets/goblin-logo-1024.png'), imageAlt, background } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const absolute = (url: string) => new URL(url, Astro.site).href;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0E0C0D" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href={studioAsset('assets/favicon-32.png')} />
+    <link rel="icon" type="image/png" sizes="512x512" href={studioAsset('assets/favicon-512.png')} />
+    <link rel="apple-touch-icon" href={studioAsset('assets/favicon-180.png')} />
+
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={headFont} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={studio.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absolute(image)} />
+    {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {background && <div class="backdrop" style={`--backdrop: url('${background}')`} aria-hidden="true"></div>}
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href={href()}>{studio.name}</a>
+        <slot name="nav" />
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="wordmark" href={href()}>{studio.name}</a>
+        <p class="small muted">© {year} {studio.legal_name}. No cookies, no tracking.</p>
+        <p class="small muted">
+          {studio.logo.credit_url ? <a href={studio.logo.credit_url} rel="noopener">{studio.logo.credit}</a> : studio.logo.credit}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(to bottom, rgba(14, 12, 13, 0.55), var(--bg) 85%),
+      var(--backdrop) center top / cover no-repeat;
+    opacity: 0.5;
+  }
+
+  .site-header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 5;
+    padding-block: 14px;
+    background: linear-gradient(to bottom, rgba(14, 12, 13, 0.85), transparent);
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+  .wordmark {
+    font-family: var(--font-studio);
+    font-size: 1.35rem;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .wordmark:hover { color: var(--gold-hover); }
+
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 40px 48px;
+    margin-top: var(--space);
+    text-align: center;
+  }
+  .site-footer p { margin: 0.4em 0 0; }
+  .site-footer a:not(.wordmark) { color: var(--soft); }
+  .site-footer a:not(.wordmark):hover { color: var(--gold-hover); }
+</style>

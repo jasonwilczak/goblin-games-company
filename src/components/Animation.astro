@@ -1,0 +1,81 @@
+---
+// A short gameplay loop. Only the poster loads with the page; the video loads and plays once it
+// scrolls into view (see the script below), and pauses when it leaves.
+import { gameAsset, type Game } from '../lib/content';
+
+interface Props { game: Game; id: string; caption?: boolean }
+const { game, id, caption = true } = Astro.props;
+const animation = game.animations.find((a) => a.id === id);
+if (!animation) throw new Error(`${game.slug}: no animation "${id}"`);
+---
+
+<figure class="animation">
+  <video
+    class="lazy-loop"
+    muted
+    loop
+    playsinline
+    preload="none"
+    width="960"
+    height="540"
+    poster={gameAsset(game, animation.poster)}
+    data-src={gameAsset(game, animation.video)}
+    aria-label={animation.alt}
+  ></video>
+  {caption && <figcaption>{animation.alt}</figcaption>}
+</figure>
+
+<style>
+  .animation { margin: 0; }
+  video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--panel);
+    border: 1px solid rgba(230, 223, 211, 0.08);
+    border-radius: 3px;
+  }
+  figcaption {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--soft);
+  }
+</style>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const videos = document.querySelectorAll<HTMLVideoElement>('video.lazy-loop');
+
+  const load = (video: HTMLVideoElement) => {
+    if (!video.src && video.dataset.src) video.src = video.dataset.src;
+  };
+
+  if (reduce) {
+    // No autoplay: the poster stays, and the controls play it on request.
+    videos.forEach((video) => {
+      video.controls = true;
+      load(video);
+    });
+  } else if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const { target, isIntersecting } of entries) {
+          const video = target as HTMLVideoElement;
+          if (isIntersecting) {
+            load(video);
+            video.play().catch(() => {});
+          } else if (!video.paused) {
+            video.pause();
+          }
+        }
+      },
+      { rootMargin: '200px 0px', threshold: 0.01 },
+    );
+    videos.forEach((video) => observer.observe(video));
+  } else {
+    videos.forEach((video) => {
+      video.controls = true;
+      load(video);
+    });
+  }
+</script>

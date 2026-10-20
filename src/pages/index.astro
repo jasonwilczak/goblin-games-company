@@ -1,0 +1,110 @@
+---
+// The studio home: the goblin, a short about, a card per game, and contact (only what's set).
+import Base from '../layouts/Base.astro';
+import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib/content';
+---
+
+<Base title={studio.name} description={studio.about}>
+  <section class="intro wrap">
+    <figure class="goblin">
+      <img
+        src={studioAsset('assets/goblin-logo-512.png')}
+        srcset={`${studioAsset('assets/goblin-logo-512.png')} 512w, ${studioAsset(studio.logo.image)} 1024w`}
+        sizes="(min-width: 720px) 320px, 240px"
+        alt="The Goblin Games goblin, grinning over a glowing book"
+        width="512"
+        height="512"
+        fetchpriority="high"
+      />
+      <figcaption>
+        {studio.logo.credit_url ? <a href={studio.logo.credit_url} rel="noopener">{studio.logo.credit}</a> : studio.logo.credit}
+      </figcaption>
+    </figure>
+    <div class="intro-text">
+      <h1 class="studio-name">{studio.name}</h1>
+      {studio.tagline && <p class="tagline">{studio.tagline}</p>}
+      <p class="about">{studio.about}</p>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="games-title">
+    <h2 id="games-title" class="eyebrow">Games</h2>
+    <ul class="games">
+      {games.map((game) => (
+        <li>
+          <a class="card" href={href(`games/${game.slug}`)}>
+            <img src={gameAsset(game, game.art.capsule)} alt="" width="1232" height="706" loading="lazy" decoding="async" />
+            <span class="card-text">
+              <span class="card-title">{game.title}</span>
+              <span class="card-tagline">{game.tagline}</span>
+              <span class="card-status">{game.status}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  {(studio.contact_email || studioLinks.length > 0) && (
+    <section class="section wrap" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="eyebrow">Contact</h2>
+      {studio.contact_email && <p><a href={`mailto:${studio.contact_email}`}>{studio.contact_email}</a></p>}
+      {studioLinks.length > 0 && (
+        <ul class="links">{studioLinks.map((link) => <li><a href={link.url} rel="noopener">{link.label}</a></li>)}</ul>
+      )}
+    </section>
+  )}
+</Base>
+
+<style>
+  .intro {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 8px;
+    padding-top: 88px;
+  }
+  @media (min-width: 900px) {
+    .intro { grid-template-columns: auto 1fr; justify-items: start; text-align: left; gap: 56px; align-items: center; padding-top: 128px; }
+  }
+  .goblin { margin: 0; display: grid; justify-items: center; }
+  .goblin img { width: 240px; filter: drop-shadow(0 10px 40px rgba(212, 175, 90, 0.12)); }
+  @media (min-width: 720px) { .goblin img { width: 320px; } }
+  .goblin figcaption { font-size: 0.9rem; }
+  .goblin figcaption a { color: var(--soft); }
+  .goblin figcaption a:hover { color: var(--gold-hover); }
+
+  .studio-name {
+    font-family: var(--font-studio);
+    font-weight: 400;
+    font-size: clamp(3rem, 13vw, 6rem);
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin: 16px 0 20px;
+    color: var(--gold);
+  }
+  .tagline { font-family: var(--font-head); font-size: 1.25rem; }
+  .about { font-size: 1.25rem; max-width: 38ch; color: var(--text); }
+
+  .games { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+  @media (min-width: 720px) { .games { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 32px; } }
+  .card {
+    display: block;
+    height: 100%;
+    background: var(--panel);
+    border: 1px solid rgba(230, 223, 211, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: var(--gold); transform: translateY(-2px); color: var(--text); }
+  .card img { width: 100%; aspect-ratio: 1232 / 706; object-fit: cover; }
+  .card-text { display: grid; gap: 6px; padding: 20px 22px 24px; }
+  .card-title { font-family: var(--font-title); font-weight: 700; font-size: 1.6rem; line-height: 1.15; }
+  .card-tagline { font-family: var(--font-head); color: var(--text); }
+  .card-status { color: var(--gold); font-size: 0.95rem; }
+
+  .links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; }
+</style>

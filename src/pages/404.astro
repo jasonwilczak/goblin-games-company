@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { href, studio, studioAsset } from '../lib/content';
+---
+
+<Base title={`Lost | ${studio.name}`} description="This page isn't on any map.">
+  <section class="lost narrow">
+    <img src={studioAsset('assets/goblin-logo-512.png')} alt="" width="512" height="512" />
+    <p class="code">404</p>
+    <h1>This page isn't on any map.</h1>
+    <p class="muted">The goblin looked. Twice. Nothing here.</p>
+    <a class="button" href={href()}>Back to {studio.name}</a>
+  </section>
+</Base>
+
+<style>
+  .lost { display: grid; justify-items: center; text-align: center; padding-top: 96px; }
+  img { width: 180px; opacity: 0.9; }
+  .code { font-family: var(--font-title); font-weight: 700; font-size: 3.5rem; color: var(--gold); margin: 8px 0 0; line-height: 1; }
+  h1 { font-size: clamp(1.5rem, 5vw, 2.2rem); margin-top: 12px; }
+  .button { margin-top: 12px; }
+</style>
