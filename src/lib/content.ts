@@ -98,6 +98,7 @@ const linkNames: Record<string, string> = {
   bluesky: 'Bluesky',
   instagram: 'Instagram',
   discord: 'Discord',
+  reddit: 'Reddit',
 };
 
 /** The studio's links that are set, blanks skipped. */
