@@ -86,7 +86,7 @@
     "full_game_adds": "The full game adds the Greek, Egyptian and Japanese pantheons, the Mage and the Thief, eighteen more gods, and what waits past the fifth throne."
   },
   "facts": {
-    "developer": "Goblin Games (Jason Wilczak)",
+    "developer": "Goblin Games",
     "platforms": [
       "Windows (Steam)"
     ],
@@ -136,14 +136,14 @@
     {
       "role": "Design, story, mechanics & direction",
       "who": [
-        "Jason Wilczak"
+        "Goblin Games"
       ]
     },
     {
       "role": "Art",
       "who": [
         "Made with FLUX (Black Forest Labs), via Replicate",
-        "Art direction by Jason Wilczak"
+        "Art direction by Goblin Games"
       ]
     },
     {

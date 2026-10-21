@@ -21,6 +21,9 @@ roguelike auto-shooter coming to Steam. Content comes from the game's own repo
 - **Mobile first:** the developer works from a phone and most visitors will be on one.
 - **Studio, then games:** the site must take a second game by adding a folder under
   `content/games/`, not by copying pages.
+- **No personal name on the site** (2026-10-21): the developer is credited as **Goblin Games**
+  everywhere (about, facts, credits). If a fresh export from the game repo brings the name
+  back into `game.json`, replace it with "Goblin Games" (and fix it at the source).
 
 ## Pages
 1. **`/` studio home:**
