@@ -4,6 +4,7 @@ import Base from '../../../layouts/Base.astro';
 import Animation from '../../../components/Animation.astro';
 import Gallery from '../../../components/Gallery.astro';
 import SteamButton from '../../../components/SteamButton.astro';
+import DiscordButton from '../../../components/DiscordButton.astro';
 import Trailer from '../../../components/Trailer.astro';
 import Facts from '../../../components/Facts.astro';
 import Requirements from '../../../components/Requirements.astro';
@@ -37,7 +38,10 @@ const demoUrl = game.steam.url && game.steam.demoAppId ? `https://store.steampow
         {art('logo') ? <img class="logo" src={art('logo')} alt={game.title} width="1280" height="224" /> : game.title}
       </h1>
       <p class="tagline">{game.tagline}</p>
-      <SteamButton game={game} class="hero-button" />
+      <div class="hero-actions">
+        <SteamButton game={game} class="hero-button" />
+        <DiscordButton class="hero-button" />
+      </div>
       <p class="status small">{game.status}</p>
     </div>
   </section>
@@ -111,6 +115,7 @@ const demoUrl = game.steam.url && game.steam.demoAppId ? `https://store.steampow
 
   <section class="section wrap cta">
     <SteamButton game={game} />
+    <DiscordButton />
     <a class="button ghost" href={href(`games/${game.slug}/press`)}>Press kit</a>
   </section>
 </Base>
@@ -161,7 +166,8 @@ const demoUrl = game.steam.url && game.steam.demoAppId ? `https://store.steampow
     max-width: 36ch;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
   }
-  .hero :global(.hero-button) { min-width: min(100%, 320px); min-height: 58px; font-size: 1.05rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 16px; }
+  .hero :global(.hero-button) { width: min(100%, 320px); min-height: 58px; font-size: 1.05rem; }
   .status { margin: 14px 0 0; color: var(--soft); }
 
   .summary { padding-top: clamp(48px, 8vw, 88px); }
@@ -192,4 +198,5 @@ const demoUrl = game.steam.url && game.steam.demoAppId ? `https://store.steampow
   .includes li::marker { color: var(--gold); }
 
   .cta { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+  .cta :global(.button) { width: min(100%, 300px); }
 </style>

@@ -1,0 +1,10 @@
+---
+// "Join the Discord", shown only when studio.json has a Discord invite.
+import { studio } from '../lib/content';
+
+interface Props { class?: string }
+const { class: extra = '' } = Astro.props;
+const url = studio.links.discord;
+---
+
+{url && <a class:list={['button ghost', extra]} href={url} rel="noopener">Join the Discord</a>}
