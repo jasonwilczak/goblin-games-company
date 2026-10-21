@@ -1,10 +1,11 @@
 ---
-// "Wishlist on Steam" once the store page exists; until then a disabled "Coming soon to Steam".
+// "Wishlist on Steam" once steam.url is set (the store page is public); until then a disabled
+// "Coming soon to Steam". The app ID alone doesn't switch it on: a hidden page redirects to Steam's home.
 import type { Game } from '../lib/content';
 
 interface Props { game: Game; class?: string }
 const { game, class: extra = '' } = Astro.props;
-const url = game.steam.url ?? (game.steam.appId ? `https://store.steampowered.com/app/${game.steam.appId}/` : null);
+const url = game.steam.url;
 ---
 
 {

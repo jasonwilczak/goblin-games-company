@@ -11,7 +11,7 @@ export function getStaticPaths() {
 
 const { game } = Astro.props as { game: Game };
 const pageUrl = new URL(href(`games/${game.slug}`), Astro.site).href;
-const steamUrl = game.steam.url ?? (game.steam.appId ? `https://store.steampowered.com/app/${game.steam.appId}/` : null);
+const steamUrl = game.steam.url;
 
 const artNames: Record<string, string> = {
   logo: 'Logo (transparent PNG)',

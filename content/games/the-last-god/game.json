@@ -4,8 +4,8 @@
   "tagline": "Curse the gods. Kill them all. Something is listening.",
   "status": "Coming to Steam (Early Access). Free demo.",
   "steam": {
-    "appId": null,
-    "demoAppId": null,
+    "appId": 5376910,
+    "demoAppId": 5436440,
     "url": null,
     "note": "Fill in when the Steam page exists; until then the Wishlist button shows 'Coming soon to Steam'."
   },
