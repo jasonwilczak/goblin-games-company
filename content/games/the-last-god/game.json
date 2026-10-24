@@ -50,7 +50,7 @@
     },
     {
       "title": "Gods that fight back",
-      "text": "Every god fights in phases, with telegraphed attacks to read and dodge, and gets harder as it bleeds.",
+      "text": "Every god fights in phases, with telegraphed attacks to read and dodge, and gets harder as it bleeds. Some of their servants come in pairs, and the worst of their blows go straight through your shields.",
       "animations": [
         "god-phase"
       ]
@@ -71,7 +71,7 @@
     },
     {
       "title": "A story told in fragments",
-      "text": "A narrator who knows more than it says, shrines that remember their gods, and a Chronicle of everything you've uncovered. Each difficulty shows you more of how it ends."
+      "text": "A strange voice that knows more than it says, shrines that remember their gods, and a Chronicle of everything you've uncovered. Each difficulty shows you more of how it ends."
     }
   ],
   "closing_line": "Full keyboard and mouse, gamepad and touch support, with every action rebindable.",
