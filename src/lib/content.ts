@@ -10,6 +10,8 @@ export interface Studio {
   domain: string | null;
   tagline: string | null;
   about: string;
+  /** First-person intro on the home page, a paragraph per entry; `about` stays the plain description. */
+  blurb?: string[] | null;
   contact_email: string | null;
   links: Record<string, string | null>;
   logo: { image: string; credit: string; credit_url: string | null };

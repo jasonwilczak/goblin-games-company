@@ -1,6 +1,7 @@
 ---
-// The studio home: the goblin (credited in the footer), a short about, a card per game, and contact (only what's set).
+// The studio home: the goblin (credited in the footer), the intro blurb (or the short about), a card per game, and contact (only what's set).
 import Base from '../layouts/Base.astro';
+import DiscordButton from '../components/DiscordButton.astro';
 import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib/content';
 ---
 
@@ -20,7 +21,12 @@ import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib
     <div class="intro-text">
       <h1 class="studio-name">{studio.name}</h1>
       {studio.tagline && <p class="tagline">{studio.tagline}</p>}
-      <p class="about">{studio.about}</p>
+      {studio.blurb?.length ? (
+        <div class="about blurb">{studio.blurb.map((paragraph) => <p>{paragraph}</p>)}</div>
+      ) : (
+        <p class="about">{studio.about}</p>
+      )}
+      <DiscordButton class="intro-discord" />
     </div>
   </section>
 
@@ -79,6 +85,8 @@ import { games, gameAsset, href, studio, studioAsset, studioLinks } from '../lib
   }
   .tagline { font-family: var(--font-head); font-size: 1.25rem; }
   .about { font-size: 1.25rem; max-width: 38ch; color: var(--text); }
+  .blurb p:first-child { font-family: var(--font-head); font-size: 1.35rem; line-height: 1.4; }
+  .intro :global(.intro-discord) { margin-top: 8px; }
 
   .games { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
   @media (min-width: 720px) { .games { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 32px; } }
