@@ -2,7 +2,7 @@
   "slug": "the-last-god",
   "title": "The Last God",
   "tagline": "Curse the gods. Kill them all. Something is listening.",
-  "status": "Coming to Steam (Early Access). Free demo.",
+  "status": "Coming to Steam. Free demo.",
   "steam": {
     "appId": 5376910,
     "demoAppId": 5436440,
@@ -95,7 +95,7 @@
       "Nintendo Switch"
     ],
     "genre": "Dark-fantasy roguelike auto-shooter",
-    "price": "$6.99 Early Access, $9.99 at 1.0; the demo is free",
+    "price": "$9.99; the demo is free",
     "languages": "English",
     "controller": "Full controller support",
     "size": "Full game 171 MB, demo 112 MB",
