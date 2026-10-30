@@ -10,13 +10,13 @@
     "note": "Fill in when the Steam page exists; until then the Wishlist button shows 'Coming soon to Steam'."
   },
   "trailer": {
-    "youtubeId": "0EfHOkZS0sE",
+    "youtubeId": "xUxIp42zIKI",
     "note": "Upload Builds/Marketing/179/trailer-roughcut.mp4 to YouTube and put the id here."
   },
-  "short_description": "The gods took someone from you. Nothing that has stopped dying remembers what a life is worth. You cursed them all, and something answered with an offer: your vengeance, for your life. A dark roguelike auto-shooter. Make every pantheon answer.",
+  "short_description": "The gods took someone from you. Nothing that has stopped dying knows what a life is worth. You cursed them all, and something answered with an offer: your vengeance, for your life. A dark roguelike auto-shooter. Make every pantheon answer.",
   "about": [
     "**Something was listening.**",
-    "You had a home. You had someone in it. Then the gods took them, the way they take whoever they like: nothing that has stopped dying remembers what a life is worth.",
+    "You had a home. You had someone in it. Then the gods took them, the way they take whoever they like: nothing that has stopped dying knows what a life is worth.",
     "So you cursed them. Not one god, not one pantheon: all of them, everywhere. Something far older than any god heard that curse and made you an offer: the justice you want, if you give up your life for it. You took it. It has guided you ever since, throne to throne. Everything it tells you is true. It just never tells you all of it.",
     "**THE LAST GOD** is a dark-fantasy roguelike auto-shooter. You move; your attacks are your own. Survive the swarm, break the demigods, and bring down the god of every realm you enter."
   ],
@@ -79,11 +79,11 @@
     "short_description": "Play the first two pantheons of The Last God: the Pagan and Norse realms, six gods to bring down, two classes to master, and Nightmare for those who survive it.",
     "includes": [
       "Two realms, six gods: the Pagan realm (Cernunnos, the Morrígan, the Dagda) and the Norse realm (Thor, Freyja, Odin), with their demigods, shrines and weather.",
-      "Fighter and Cleric, each climbing both realms from Normal through Nightmare, evolutions and the level-10 skill included.",
+      "Fighter and Mage, each climbing both realms from Normal through Nightmare, evolutions and the level-10 skill included.",
       "Runes, artifacts and god skills from those six gods.",
       "The Reliquary and the whole climb, Nightmare included, with that realm pair's keepsakes and vows."
     ],
-    "full_game_adds": "The full game adds the Greek, Egyptian and Japanese pantheons, the Mage and the Thief, eighteen more gods, and what waits past the fifth throne."
+    "full_game_adds": "The full game adds the Greek, Egyptian and Japanese pantheons, the Cleric and the Thief, eighteen more gods, and what waits past the fifth throne."
   },
   "facts": {
     "developer": "Goblin Games",
