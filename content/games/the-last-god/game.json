@@ -13,17 +13,25 @@
     "youtubeId": "xUxIp42zIKI",
     "note": "Upload Builds/Marketing/179/trailer-roughcut.mp4 to YouTube and put the id here."
   },
-  "short_description": "The gods took someone from you. Nothing that has stopped dying knows what a life is worth. You cursed them all, and something answered with an offer: your vengeance, for your life. A dark roguelike auto-shooter. Make every pantheon answer.",
+  "short_description": "A dark-fantasy roguelite survivors-like where you hunt the gods and take their power. Bring down Thor and Mjolnir is yours to call; topple Odin and Gungnir answers to you. The gods took someone from you. You cursed them all, and something answered. Make every pantheon answer.",
   "about": [
     "**Something was listening.**",
     "You had a home. You had someone in it. Then the gods took them, the way they take whoever they like: nothing that has stopped dying knows what a life is worth.",
     "So you cursed them. Not one god, not one pantheon: all of them, everywhere. Something far older than any god heard that curse and made you an offer: the justice you want, if you give up your life for it. You took it. It has guided you ever since, throne to throne. Everything it tells you is true. It just never tells you all of it.",
-    "**THE LAST GOD** is a dark-fantasy roguelike auto-shooter. You move; your attacks are your own. Survive the swarm, break the demigods, and bring down the god of every realm you enter."
+    "**THE LAST GOD** is a dark-fantasy roguelite survivors-like. Your attacks fire on their own; the skills are yours to call: a dash, your class's ability, and the powers you tear from the gods. Survive the swarm, break the demigods, and bring down the god of every realm you enter."
   ],
   "features": [
     {
+      "title": "Take the gods' power",
+      "text": "Bring a god down on Hard or Nightmare and its skill is yours for good: Thor's Mjolnir, Odin's Gungnir, Ra's Solar Sweep. Each answers in its own realm, for every class; spend the gods' blood to make it answer everywhere. Carry two at a time.",
+      "animations": [
+        "god-kill",
+        "god-skill"
+      ]
+    },
+    {
       "title": "Every realm is a climb",
-      "text": "Three levels on Normal, then the same three on Hard, then on Nightmare, carrying one build all the way up. Each class makes its own climb, and a fall sends you back to the start of the tier, not the start of the realm. Stuck on a tier with a build that let you down? Spend essence to rebuild your start from scratch."
+      "text": "Three levels on Normal, then the same three on Hard, then on Nightmare, carrying one build all the way up. Each class makes its own climb. Fall on Normal and you try that level again; on Hard and Nightmare a fall sends you back to the start of the tier, not the start of the realm. Stuck on a tier with a build that let you down? Spend essence to rebuild your start from scratch."
     },
     {
       "title": "Four classes, eight evolutions",
@@ -35,14 +43,6 @@
     {
       "title": "Runes that build on themselves",
       "text": "Open rune chests, spin the wheel, and slot what you find. Matching runes merge into rarer ones. No two builds solve the swarm the same way."
-    },
-    {
-      "title": "Take the gods' power",
-      "text": "Bring a god down on Hard or Nightmare and its skill is yours for good: Thor's Mjolnir, Odin's Gungnir, Ra's Solar Sweep. Each answers in its own realm, for every class; spend the gods' blood to make it answer everywhere. Carry two at a time.",
-      "animations": [
-        "god-kill",
-        "god-skill"
-      ]
     },
     {
       "title": "Five pantheons, and the thrones beyond them",
@@ -94,7 +94,7 @@
       "Mobile",
       "Nintendo Switch"
     ],
-    "genre": "Dark-fantasy roguelike auto-shooter",
+    "genre": "Dark-fantasy roguelite survivors-like",
     "price": "$9.99; the demo is free",
     "languages": "English",
     "controller": "Full controller support",
@@ -131,7 +131,7 @@
       "Storage": "300 MB available space"
     }
   },
-  "ai_disclosure": "Pre-generated content. The game's visual art (characters, monsters, environments, icons, cutscene backgrounds and store art), its music and some of its sound effects were generated with AI image, music and audio models, then directed, curated, edited and fitted to the game's art style and tone by the developer at Goblin Games. The game's code and its writing were developed with an AI assistant (Claude, by Anthropic) under the developer's direction; the game's design, story and direction are the developer's own. The remaining sound effects come from Pixabay. No AI generates content while you play.",
+  "ai_disclosure": "This game's art, music and text were created with AI tools and edited by hand, alongside some AI-generated sound effects.",
   "credits": [
     {
       "role": "Design, story, mechanics & direction",

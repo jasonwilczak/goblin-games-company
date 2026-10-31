@@ -2,7 +2,7 @@
 
 The website of **Goblin Games** (legal name Goblin Games Company), a one-person game studio
 (Jason Wilczak), with a page for each game. The first game is **The Last God**, a dark-fantasy
-roguelike auto-shooter coming to Steam. Content comes from the game's own repo
+roguelite survivors-like coming to Steam. Content comes from the game's own repo
 (`jasonwilczak/the-last-god`, private); this repo never edits it.
 
 ## Decisions already made (2026-10-20, with the developer)
