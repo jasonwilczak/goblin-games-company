@@ -35,7 +35,7 @@
     },
     {
       "title": "Four classes, eight evolutions",
-      "text": "Fighter, Cleric, Mage and Thief. Each grows through three ranks as it climbs and, at its peak, chooses one of two evolutions that change how it fights for the rest of that climb. At level 10 each picks a second skill of its own from three: Charge, Frost Nova, Smite, Blink and eight more.",
+      "text": "Fighter, Cleric, Mage and Thief. Each grows through three ranks as it climbs and, at its peak, chooses one of two evolutions that change how it fights for the rest of that climb. At level 5 each picks a second skill of its own from three: Charge, Frost Nova, Smite, Blink and eight more. Do it again at level 10. Change it up when you evolve.",
       "animations": [
         "evolution"
       ]
@@ -79,7 +79,7 @@
     "short_description": "Play the first two pantheons of The Last God: the Pagan and Norse realms, six gods to bring down, two classes to master, and Nightmare for those who survive it.",
     "includes": [
       "Two realms, six gods: the Pagan realm (Cernunnos, the Morrígan, the Dagda) and the Norse realm (Thor, Freyja, Odin), with their demigods, shrines and weather.",
-      "Fighter and Mage, each climbing both realms from Normal through Nightmare, evolutions and the level-10 skill included.",
+      "Fighter and Mage, each climbing both realms from Normal through Nightmare, evolutions and the level skills included.",
       "Runes, artifacts and god skills from those six gods.",
       "The Reliquary and the whole climb, Nightmare included, with that realm pair's keepsakes and vows."
     ],
@@ -98,7 +98,7 @@
     "price": "$9.99; the demo is free",
     "languages": "English",
     "controller": "Full controller support",
-    "size": "Full game 171 MB, demo 112 MB",
+    "size": "Full game 181 MB, demo 123 MB",
     "tags": [
       "Action Roguelike",
       "Roguelike",
@@ -131,7 +131,7 @@
       "Storage": "300 MB available space"
     }
   },
-  "ai_disclosure": "This game's art, music and text were created with AI tools and edited by hand, alongside some AI-generated sound effects.",
+  "ai_disclosure": "This game's art and text were created with AI tools and edited by hand. The music was composed with Claude (Anthropic) in BeepBox and performed with Muse Sounds in MuseScore Studio. Some sound effects are AI-generated.",
   "credits": [
     {
       "role": "Design, story, mechanics & direction",
@@ -143,13 +143,16 @@
       "role": "Art",
       "who": [
         "Made with FLUX (Black Forest Labs), via Replicate",
-        "Art direction by Goblin Games"
+        "Art direction by Goblin Games",
+        "Button icons by Kenney (kenney.nl)"
       ]
     },
     {
       "role": "Music",
       "who": [
-        "Made with ElevenLabs Music, via Replicate"
+        "Music direction by Goblin Games",
+        "Composed with Claude (Anthropic) in BeepBox",
+        "Performed with Muse Sounds in MuseScore Studio"
       ]
     },
     {
